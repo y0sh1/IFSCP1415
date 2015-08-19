@@ -32,7 +32,8 @@ while ans:
             "zijn gedefineerd. .")
     elif ans == "7":
         print("\n Voor veel gebruikte stukken code is het beter om een functie hiervoor te defineren. "
-              "Functies kunnen input en output hebben, maar dit is verplicht.")
+              "Hiermee voorkom je dat je veel gebruikte code op meerdere plaatsen volledig uitschrijft.\n "
+              "Functies kunnen input en output hebben, maar dit is niet verplicht.")
     elif ans == "8":
         print("\n Goodbye")
         ans = False
