@@ -9,21 +9,32 @@ def welcome():
     print("Op het moment bevind u zich in: " + os.getcwd() + "\n")
 
 
-def validatepath(path):
-    print("hier valideren we iets")
-
-
 def isdir(path):
-    print("hier kijken we of een map er echt is")
+    if os.path.isdir(path):
+        return True
+    else:
+        return False
 
 
 def isfile(path):
-    print("Hier kijken we of een bestand er echt wel is")
+    if os.path.isfile(path):
+        return True
+    else:
+        return False
 
 
 def main():
     welcome()
-    filename = raw_input('Enter a file name: ')
+    path = raw_input("Voer het pad of bestand in dat u wilt onderzoeken: ")
     print("Bedankt, we gaan nu uw antwoord valideren")
+    if isdir(path):
+        print("Dit is een map")
+        print("De inhoud van de map is als volgt: ")
+        for sub in os.listdir(path):
+            print(sub)
+    elif isfile(path):
+        print("Dit is een bestand")
+    else:
+        print("Wat is dit?!")
 
 main()
