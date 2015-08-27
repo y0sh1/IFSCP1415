@@ -113,17 +113,19 @@ def endpointer(jsonfile):
 
 def scandir(dir):
     for itemindir in os.listdir(dir):
-        # print("Map is: " + dir)
-        # print("Bestand is: " + itemindir)
-        totaalpad= dir + "\\" + itemindir
-        # print(totaalpad)
-        if itemindir != "Thumbs.db":
-            plaatje = Image.open(totaalpad)
-            exif_data = get_exif_data(plaatje)
-            coords = get_lat_lon(exif_data)
-            print(geojson.Point((coords[0],coords[1])))
-            # f = open("photos.json",'a')
-            # f.write(str(geojson.Point((coords[0],coords[1]))))
-            # f.close()
+        try:
+            # print("Map is: " + dir)
+            # print("Bestand is: " + itemindir)
+            totaalpad= dir + "\\" + itemindir
+            # print(totaalpad)
+            if itemindir != "Thumbs.db":
+                plaatje = Image.open(totaalpad)
+                exif_data = get_exif_data(plaatje)
+                coords = get_lat_lon(exif_data)
+                print(itemindir + " " + str(geojson.Point((coords[0],coords[1]))))
+                # f = open("photos.json",'a')
+                # f.write(str(geojson.Point((coords[0],coords[1]))))
+                # f.close()
+        except
 
 welcome()

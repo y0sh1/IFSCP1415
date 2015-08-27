@@ -10,9 +10,9 @@ def scandir(dir):
     print("Er staan " + str(len(contents)) + " items in " + dir)
     for item in contents:
         if identifypdf(item) == True:
-            print(item + str(mimetypes.guess_type(item)[0]))
+            print(item + " " + str(mimetypes.guess_type(item)[0]))
         elif identifyoffice(item) == True:
-            print(item + str(mimetypes.guess_type(item)[0]))
+            print(item + " " + str(mimetypes.guess_type(item)[0]))
 
 
 def welcome():
