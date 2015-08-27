@@ -1,0 +1,35 @@
+from Crypto.Cipher import AES
+import binascii
+
+Opdracht = 6
+key = 'mysecretpassword'
+plaintext = 'Secret Message A'
+ciphertext = binascii.unhexlify('e8da47acc08bc751745ef8fbff44e107')
+
+def welcome():
+    print("Welkom bij opdracht " + str(Opdracht))
+    key = raw_input("Wat is de sleutel?")
+    keuze = raw_input("Wat wil je doen, 1 voor coderen, 2 voor de coderen: ")
+    if(keuze == "1"):
+        plain = raw_input("Wat is de plaintext?")
+        print(encrypt(plain, key))
+    elif(keuze == "2"):
+        cipher = raw_input("Wat is de cipthertext?")
+        print(decrypt(cipher, key))
+    else:
+        print("Geen goede keuze :(")
+
+
+def encrypt(plain, key):
+    encobj = AES.new(key, AES.MODE_ECB)
+    ciphertext = encobj.encrypt(plain)
+    # Resulting ciphertext in hex
+    return ciphertext.encode('hex')
+
+def decrypt(ciphertext, key):
+    decobj = AES.new(key, AES.MODE_ECB)
+    plaintext = decobj.decrypt(ciphertext.decode('hex'))
+    # Resulting plaintext
+    return plaintext
+
+welcome()
