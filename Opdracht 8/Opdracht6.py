@@ -31,5 +31,3 @@ def decrypt(ciphertext, key):
     plaintext = decobj.decrypt(ciphertext.decode('hex'))
     # Resulting plaintext
     return plaintext
-
-welcome()
